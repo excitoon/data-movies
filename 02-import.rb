@@ -111,8 +111,8 @@ def import_ratings
 	
 end
 
-# puts "Importing movies"
-# import_movies
+puts "Importing movies"
+import_movies
 puts "Importing times"
 import_times
 puts "Importing budgets"

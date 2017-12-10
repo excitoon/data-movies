@@ -22,3 +22,36 @@ Movies were selected for inclusion if they had a known length and had been rated
 * r1-10.  Distribution of votes for each rating, to mid point of nearest decile: 0 = no votes, 4.5 = 1-9$\%$ votes, 14.5 = 11-19$\%$ of votes, etc.  Due to rounding errors these may not sum to 100.
 * mpaa.  MPAA rating.
 * action, animation, comedy, drama, documentary, romance, short.  Binary variables representing if movie was classified as belonging to that genre.
+
+#### Dependencies
+
+```
+scoop install gzip
+scoop install sqlite
+scoop install ruby
+gem install sqlite3
+gem install arrayfields
+```
+
+#### Unpacking
+
+```
+gzip -d running-times.list.gz
+gzip -d business.list.gz
+gzip -d genres.list.gz
+gzip -d mpaa-ratings-reasons.list.gz
+gzip -d movies.list.gz
+gzip -d ratings.list.gz
+```
+
+#### Prepare SQLite database
+
+```
+sqlite3 movies.sqlite3 < 01-movies.sql
+```
+
+#### Example query
+
+```
+select year, imdb_rating, budget, title, group_concat(genre) from Movies inner join Genres on Movies.id = Genres.movie_id where imdb_votes > 0 AND length > 0 and year<2017 and year>2000 and genre in ('Comedy', 'Romance', 'Fantasy', 'Sci-Fi') group by Movies.id order by budget*imdb_rating desc limit 20;
+```

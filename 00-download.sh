@@ -1,1 +1,1 @@
-wget -r -l1 -np -nd -P data ftp://ftp.fu-berlin.de/pub/misc/movies/database/ 
+wget -r -l1 -np -nd -c -P data ftp://ftp.fu-berlin.de/pub/misc/movies/database/temporaryaccess/ 

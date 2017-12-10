@@ -3,7 +3,7 @@ require "arrayfields"
 require "sqlite3"
 require "set"
 
-$genres_of_interest = ["Action", "Animation", "Comedy", "Drama", "Documentary", "Romance", "Short"]
+$genres_of_interest = ["Action", "Animation", "Comedy", "Drama", "Documentary", "Romance", "Sci-Fi", "Fantasy"]
 $ratings_map = {"." => 0, "0" => 4.5, "1" => 14.5, "2" => 24.5, "3" => 34.5, "4" => 44.5, "5" => 45.5, "6" => 64.5, "7" => 74.5, "8" => 84.5, "9" => 94.5, "*" => 100}
 
 
