@@ -17,6 +17,7 @@ def ratings_breakdown(ratings)
 end
 
 db = SQLite3::Database.new( "movies.sqlite3" )
+db.results_as_hash = true
 sql = "
 	SELECT Movies.* 
 	FROM Movies
